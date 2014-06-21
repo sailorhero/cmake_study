@@ -1,7 +1,11 @@
-#include <stdio.h>
-#include "hello.h"
+#include <string.h>
+#include <malloc.h>
 
-void hello(const char * name)
+char* hello(const char * name)
 {
-    printf ("Hello %s!/n", name);
+    const char* strHello = "Hello ";
+    char* str = (char*)malloc(strlen(strHello)+strlen(name)+1);
+    strcpy(str,strHello);
+    strcpy(str+strlen(strHello),name);
+    return str;
 }
