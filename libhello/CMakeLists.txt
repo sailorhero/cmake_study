@@ -1,4 +1,4 @@
-set(LIB_SRC hello.c)
+set(LIB_SRC hello.cpp)
 
 #add new target "libhello"
 #add_library(libhello ${LIB_SRC})
