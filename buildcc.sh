@@ -19,9 +19,10 @@ rm build/$CPPNCSSReport 	> /dev/null
 rm build/$GCOVReport 		> /dev/null
 rm -rf build/xunit 			> /dev/null  
 
-cmake ..
-export CPPFLAGS=" -fprofile-arcs -ftest-coverage"
+#export CFLAGS=" -fprofile-arcs -ftest-coverage"
 export LDFLAGS=" -lgcov"
+cmake -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage" ..
+
 make
 
 if  test -n "$BuildPath" ; then
