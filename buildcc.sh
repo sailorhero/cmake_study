@@ -1,3 +1,5 @@
+PROJECT_PATH=`pwd`
+
 BuildPath=build
 CPPCheckReport=cppcheck.xml
 CPPCheckApp=`which cppcheck`
@@ -21,7 +23,7 @@ rm -rf build/xunit 			> /dev/null
 
 #export CFLAGS=" -fprofile-arcs -ftest-coverage"
 export LDFLAGS=" -lgcov"
-cmake -DCMAKE_C_FLAGS="-fprofile-arcs -ftest-coverage" ..
+cmake -DCMAKE_CXX_FLAGS="-fprofile-arcs -ftest-coverage" ..
 
 make
 
@@ -45,7 +47,7 @@ if  test -n "$BuildPath" ; then
      #$RunPath/vodservertest.out --gtest_output=xml:$GTestReport > /dev /null
      
      echo "Make GCovr"
-     $GCOVRApp -x  > $GCOVReport
+     $GCOVRApp -x -e/usr/include -e$PROJECT_PATH/test > $GCOVReport
 	 #-fprofile-arcs -ftest-coverage -fPIC
 else
      echo "Make Fail!"
