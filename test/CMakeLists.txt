@@ -9,5 +9,9 @@ set(TEST_SRC hellotest.cpp)
 add_executable(helloTest ${TEST_SRC})
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
+#查找线程库
+find_package (Threads)
+
 #link "libhello" to hello program
-target_link_libraries(helloTest libhello ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(helloTest libhello ${GTEST_LIBRARIES} pthread)
+target_link_libraries(helloTest libhello ${GTEST_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
