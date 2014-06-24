@@ -66,6 +66,7 @@
     2. 设置${GTEST_DIR}指向，gtest目录。具体参见gtest源码中的README。 
     3. 将googletest源码解压作为项目的一个子目录，工程对应的顶级CMakelists.txt内容如下：
     
+    ```    
     cmake_minimum_required(VERSION 2.6)
     project(basic_test)
     
@@ -84,6 +85,7 @@
     # Link test executable against gtest & gtest_main
     target_link_libraries(runUnitTests gtest gtest_main)
     add_test( runUnitTests runUnitTests ) 
+    ```
 
 参考文档：
 
