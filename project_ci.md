@@ -59,10 +59,30 @@
 
 1. 下载[gtest源码](http://code.google.com/p/googletest/downloads/list)，最新版本1.7.0
 2. 编译，生成gtest库
-3. 使用两种方法：
+3. 使用方法：
     1. 手工安装，头文件安装到/usr/include/gtest中，库文件(libgtest.a,libgtest_main.a)安装到/usr/local/lib
     
-    2. 设置${GTEST_DIR}指向，gtest目录。具体参见gtest源码中的README。  
+    2. 设置${GTEST_DIR}指向，gtest目录。具体参见gtest源码中的README。 
+    3. 将googletest源码解压作为项目的一个子目录，工程对应的顶级CMakelists.txt内容如下：
+    
+    cmake_minimum_required(VERSION 2.6)
+    project(basic_test)
+    
+    ################################
+    # GTest
+    ################################
+    ADD_SUBDIRECTORY (gtest-1.6.0)
+    enable_testing()
+    include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+    
+    ################################
+    # Unit Tests
+    ################################
+    # Add test cpp file
+    add_executable( runUnitTests testgtest.cpp )
+    # Link test executable against gtest & gtest_main
+    target_link_libraries(runUnitTests gtest gtest_main)
+    add_test( runUnitTests runUnitTests ) 
 
 参考文档：
 
