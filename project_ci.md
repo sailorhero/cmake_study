@@ -19,6 +19,7 @@
 	- 注：程序概要分析工具是分析代码性能的工具。
 	
 6. Googletest 单元测试框架
+7. jdk
 
 ## CCCC
     $ sudo apt-get install CCCC
@@ -95,3 +96,32 @@
 参考文档：
 
 1. [googlemock主页](http://code.google.com/p/googlemock/)
+
+## jdk
+1. 在/usr/下新建java目录，把下载的文件放到这个目录下
+
+    sudo mkdir /usr/java
+    cd /usr/java
+
+2. 更改这个文件的权限，使其可以运行：
+
+    cat@Ubuntu:/usr/java$ sudo chmod u+x jdk-6u25-linux-i586.bin
+
+3. 运行这个文件：
+
+    cat@Ubuntu:/usr/java$ ./jdk-6u25-linux-i586.bin
+
+4. 设置环境变量：
+修改/etc/profile文件，在末尾加上下面几行：
+
+    JAVA_HOME=/usr/java/jdk1.6.0_25
+    PATH=$PATH:$JAVA_HOME/bin
+    CLASSPATH=.:$JAVA_HOME/lib
+    export JAVA_HOME
+    export PATH
+    export CLASSPATH
+
+参考：
+1.[jdk8下载链接](https://jdk8.java.net/download.html/)
+
+
