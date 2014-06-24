@@ -1,17 +1,14 @@
-#include_directories(${PROJECT_SOURCE_DIR}/libhello)
-
-# Locate GTest
-find_package(GTest REQUIRED)
-include_directories("/usr/include" ${GTEST_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/libhello)
-
-set(TEST_SRC hellotest.cpp)
-
-add_executable(helloTest ${TEST_SRC})
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+include_directories(${PROJECT_SOURCE_DIR}/libhello)
 
 #查找线程库
 find_package (Threads)
 
-#link "libhello" to hello program
-#target_link_libraries(helloTest libhello ${GTEST_LIBRARIES} pthread)
-target_link_libraries(helloTest libhello ${GTEST_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+################################
+# Unit Tests Target
+################################
+# Add test cpp file
+add_executable( helloTest hellotest.cpp )
+# Link test executable against gtest & gtest_main
+target_link_libraries(helloTest gtest gtest_main libhello ${CMAKE_THREAD_LIBS_INIT})
+
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/test_bin)
