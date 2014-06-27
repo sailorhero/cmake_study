@@ -129,6 +129,16 @@
 
 	SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE) 
 
+9. Utility modules
+
+    CMakePrintSystemInformation     #打印Cmake设置
+
+    message("#####print system information##########")
+    include(CMakePrintSystemInformation)
+    message("######################################")
+
+
+
 ### FAQ
 
 1. CMake内调用环境变量
