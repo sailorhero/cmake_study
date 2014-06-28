@@ -16,7 +16,6 @@ configure_file (
   "${PROJECT_BINARY_DIR}/include/helloconfig.h"
 )
 
-
 ###########################################################
 # GTest 工程定义
 ###########################################################
@@ -30,3 +29,12 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 enable_testing()
 # Add unittest 
 add_test(NAME helloTest COMMAND helloTest )
+
+###########################################################
+# 安装脚本
+###########################################################
+SET (CMAKE_INSTALL_PREFIX "/tmp/${PROJECT_NAME}") # 设定当前文件夹为安装文件夹
+install (FILES "${PROJECT_BINARY_DIR}/include/helloconfig.h"        
+         DESTINATION include)
+install (PROGRAMS "${PROJECT_SOURCE_DIR}/runhello.sh"        
+         DESTINATION bin)

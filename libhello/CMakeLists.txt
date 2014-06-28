@@ -20,4 +20,9 @@ set(HELLOLIB_SOVERSION 1)
 
 set_target_properties(libhello PROPERTIES VERSION ${HELLOLIB_VERSION_MAJOR}.${HELLOLIB_VERSION_MINOR} SOVERSION ${HELLOLIB_SOVERSION})
 
-
+###########################################################
+# 安装脚本
+###########################################################
+install(TARGETS libhello hello_static
+  LIBRARY DESTINATION "lib"
+  ARCHIVE DESTINATION "lib/static")
