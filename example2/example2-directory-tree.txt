@@ -1,0 +1,39 @@
+├── build
+├── CMakeLists.txt
+├── include
+│   ├── graph
+│   ├── linklist
+│   │   └── linklist.h
+│   ├── queue
+│   └── stack
+├── src
+│   ├── CMakeLists.txt
+│   ├── graph
+│   ├── linklist
+│   │   └── linklist.cpp
+│   ├── queue
+│   └── stack
+├── tests
+│   ├── CMakeLists.txt
+│   └── linklist_test.cpp
+└── unittests
+    ├── CMakeLists.txt
+    ├── gtest-1.6.0
+    └── src
+        ├── CMakeLists.txt
+        └── linklist
+            ├── CMakeLists.txt
+            └── linklist_unittest.cpp
+##################################################################           
+build目录用于外部编译时用，即在build目录下运行cmake/make命令，生成可执行程序。
+CMakeLists.txt是cmake命令使用到的文件。
+
+include文件夹用于存放头文件。
+
+src则是用于存放程序文件。
+
+tests文件夹用于存放自己写的测试程序。
+
+unittests用于存放单元测试程序文件。
+
+gtest是google的单元测试框架，在这里会使用到。            
