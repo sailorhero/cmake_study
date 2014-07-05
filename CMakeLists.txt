@@ -6,15 +6,17 @@ cmake_minimum_required(VERSION 2.8)
 set(HELLO_VERSION_MAJOR 1)
 set(HELLO_VERSION_MINOR 0)
 
-add_subdirectory(libhello)
-add_subdirectory(src)
-add_subdirectory(test)
-
 # 配置头文件，把CMake设置传递给源文件
 configure_file (
   "${PROJECT_SOURCE_DIR}/include/helloconfig.h.in"
   "${PROJECT_BINARY_DIR}/include/helloconfig.h"
 )
+
+###########################################################
+# GTest 工程定义
+###########################################################
+ADD_SUBDIRECTORY (gtest-1.7.0)
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 ################################################################
 #CMake选项支持gcov和gprof
@@ -42,13 +44,12 @@ IF (ENABLE_GPROF AND NOT WIN32 AND NOT APPLE)
     "${CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO} -pg")
 ENDIF()
 #############################################################
+# 编译属性设置，在子目录前，否则定义不能带入子目录
+#############################################################
+add_subdirectory(libhello)
+add_subdirectory(src)
+add_subdirectory(test)
 
-
-###########################################################
-# GTest 工程定义
-###########################################################
-ADD_SUBDIRECTORY (gtest-1.7.0)
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 ###########################################################
 # Unit Tests
