@@ -31,3 +31,11 @@ ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(tests)
 ADD_SUBDIRECTORY(unittests)
 #添加三个要编译的子文件夹
+
+###########################################################
+# Unit Tests
+# 顶层CMakelists.txt定义单元测试，否则make test目标不生成。
+###########################################################
+enable_testing()
+# Add unittest 
+add_test(NAME linklist_unittest COMMAND linklist_unittest )
