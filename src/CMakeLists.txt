@@ -6,7 +6,7 @@ AUX_SOURCE_DIRECTORY(. APP_SRCS)
 
 add_executable(${PROJECT_NAME} ${APP_SRCS})
 
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+#set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 #link "libhello" to hello program
 target_link_libraries(${PROJECT_NAME} libhello)

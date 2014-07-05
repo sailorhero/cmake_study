@@ -10,7 +10,7 @@ set_target_properties(${PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "hello")
 
 #生成动态库；设置目标属性修改生成的动态库的库名
 add_library(${PROJECT_NAME} SHARED ${LIB_SRC})
-set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+#set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
 #set lib name to hello.so or libhello.a 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "hello")

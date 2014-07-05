@@ -43,6 +43,19 @@ IF (ENABLE_GPROF AND NOT WIN32 AND NOT APPLE)
   SET(CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO
     "${CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO} -pg")
 ENDIF()
+
+# Setup output directories.
+set(LIBRARY_OUTPUT_PATH 
+  ${PROJECT_BINARY_DIR}/lib 
+  CACHE PATH 
+  "Single directory for all libraries.")
+set(EXECUTABLE_OUTPUT_PATH 
+  ${PROJECT_BINARY_DIR}/bin 
+  CACHE PATH 
+  "Single directory for all targets.")
+mark_as_advanced(
+  LIBRARY_OUTPUT_PATH
+  EXECUTABLE_OUTPUT_PATH)
 #############################################################
 # 编译属性设置，在子目录前，否则定义不能带入子目录
 #############################################################
